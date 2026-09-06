@@ -1,0 +1,27 @@
+# Core Frameworks & LangChain Modern Ecosystem
+langchain>=0.3.0
+langchain-core>=0.3.0
+langchain-community>=0.3.0
+langchain-openai>=0.2.0
+
+# Vector Database & Sparse Indexing
+faiss-cpu>=1.8.0
+rank-bm25>=0.2.2
+
+# Embeddings, Cross-Encoders & Transformer Models
+sentence-transformers>=3.0.0
+
+# Configuration & Data Validation
+pydantic>=2.7.0
+pydantic-settings>=2.2.0
+python-dotenv>=1.0.1
+
+# Observability, CLI & Terminal UI
+rich>=13.7.0
+
+# Numerical Computation
+numpy>=1.26.0
+
+# Testing Suite
+pytest>=8.0.0
+pytest-mock>=3.14.0
