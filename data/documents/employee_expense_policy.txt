@@ -1,0 +1,30 @@
+---
+document_id: employee-expense-policy-v1
+source: employee_expense_policy.txt
+department: human_resources
+document_type: policy
+version: 1.5
+date: 2025-09-01
+access_level: internal
+topic: hr-expenses
+---
+
+# NovaTech Solutions: Corporate Expense & Travel Policy
+
+This policy governs business expenditures incurred by employees in the performance of company duties.
+
+1. Travel and Lodging Guidelines:
+- Flights: Economy class is mandatory for domestic flights under 5 hours. Business class may be booked for international flights exceeding 7 hours with VP approval.
+- Hotel Accommodations: Standard business room rates up to $220/night in standard cities, or up to $300/night in designated high-cost metropolitan areas (New York, San Francisco, London, Tokyo).
+
+2. Meals and Incidentals Per-Diem:
+- Daily meal allowance is capped at $75 per day during domestic business travel ($15 breakfast, $25 lunch, $35 dinner).
+- Itemized receipts are strictly mandatory for all individual meal charges exceeding $25. Alcoholic beverages are limited to one drink with dinner.
+
+3. Home Office and Technology Stipend:
+- New hires receive a one-time remote setup stipend of $800 to purchase ergonomic monitors, desks, or accessories.
+- Monthly broadband internet reimbursement of up to $60/month is available for remote and hybrid team members.
+
+4. Reimbursement Filing Deadlines:
+- All expense reports must be submitted via Expensify within 30 calendar days of incurring the expense.
+- Reports submitted later than 60 days will be rejected and ineligible for corporate reimbursement.

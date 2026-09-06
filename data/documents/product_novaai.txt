@@ -1,0 +1,36 @@
+---
+document_id: product-novaai-v3
+source: product_novaai.txt
+department: product
+document_type: specification
+version: 3.1
+date: 2026-02-01
+access_level: public
+topic: product-features
+---
+
+# NovaAI Platform: Technical Specifications & Features
+
+NovaAI Enterprise Suite is NovaTech's flagship generative artificial intelligence and agentic workflow platform.
+
+Core Capabilities:
+1. Long-Context Document Understanding:
+   - NovaAI utilizes our proprietary Nova-Flash-2 context engine with support for up to 128,000 tokens of input context.
+   - Built-in multi-modal document parser supporting PDF, DOCX, scanned TIFF images, and structured spreadsheets.
+
+2. Hybrid Retrieval Engine (KnowledgeForge):
+   - Combines dense vector semantic similarity with dense HNSW indexes and BM25 sparse lexical matching.
+   - Uses cross-encoder reranking (Nova-Ranker-Mini) to optimize document order before sending context to the LLM.
+
+3. Agentic Workflow Orchestration:
+   - Stateful agent execution with multi-step tool calling, memory checkpoints, and human approval triggers.
+   - Built-in sandboxed code execution environment supporting Python 3.11+ and SQL querying.
+
+4. Hallucination Guardrails & Grounding:
+   - Every claim synthesized by NovaAI is attributed with direct character-level citations to source documents.
+   - Automatic confidence scoring: if retrieval relevance score falls below 0.65, NovaAI explicitly signals that source knowledge is insufficient.
+
+Supported Integrations:
+- Storage: Amazon S3, Google Cloud Storage, Microsoft Azure Blob, Google Drive, Box.
+- Databases: PostgreSQL, Snowflake, Databricks, MongoDB, BigQuery.
+- Communication: Slack, Microsoft Teams, Zendesk, Salesforce Service Cloud.

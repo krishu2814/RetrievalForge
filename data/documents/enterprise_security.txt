@@ -1,0 +1,32 @@
+---
+document_id: enterprise-security-v2
+source: enterprise_security.txt
+department: security
+document_type: specification
+version: 2.1
+date: 2026-01-20
+access_level: public
+topic: security
+---
+
+# NovaTech Solutions: Enterprise Security & Compliance Architecture
+
+NovaTech builds security into every layer of our retrieval and inference pipelines. We are audited annually by independent third-party assessors.
+
+1. Certifications and Accreditations:
+- SOC 2 Type II Certified: Covers Security, Availability, and Confidentiality trust principles.
+- ISO/IEC 27001:2022 Certified for information security management systems.
+- HIPAA Compliant: We sign Business Associate Agreements (BAAs) with eligible Business and Enterprise tier healthcare customers.
+
+2. Encryption Standards:
+- Data in Transit: Enforced TLS 1.3 encryption across all public endpoints and internal service-to-service communication. Older cipher suites and TLS 1.1/1.0 are permanently disabled.
+- Data at Rest: Encrypted using AES-256 with customer-managed encryption keys (CMEK) via AWS KMS or HashiCorp Vault.
+- Vector Embeddings Storage: Vector indexes in FAISS and Qdrant are encrypted at rest with per-tenant isolation keys.
+
+3. Zero-Retention Model & AI Privacy:
+- Customer queries, retrieved document context, and generated answers are NEVER used to train, fine-tune, or improve any shared public foundation models.
+- Enterprise customers can enable Zero Data Retention (ZDR) mode: prompts and responses are held strictly in ephemeral RAM and wiped immediately following completion of the streaming session.
+
+4. Network Security & Perimeter:
+- Distributed Denial of Service (DDoS) mitigation and Web Application Firewall (WAF) managed via Cloudflare Enterprise.
+- Dedicated VPC peering and AWS PrivateLink available for Enterprise tier clients to keep AI retrieval traffic completely off the public Internet.

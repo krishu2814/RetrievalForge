@@ -1,0 +1,31 @@
+---
+document_id: employee-leave-policy-v2
+source: employee_leave_policy.txt
+department: human_resources
+document_type: policy
+version: 2.0
+date: 2026-01-01
+access_level: internal
+topic: hr-leave
+---
+
+# NovaTech Solutions: Employee Leave & Time-Off Policy
+
+This internal policy applies to all full-time and part-time salaried employees of NovaTech globally.
+
+1. Paid Time Off (PTO) / Annual Vacation:
+- Full-time employees accrue 20 days of paid vacation per calendar year, accrued on a monthly pro-rata basis (1.67 days per month).
+- A maximum of 5 unused vacation days may be rolled over into the subsequent calendar year. Any additional unused days expire on March 31st.
+- Vacation requests exceeding 3 consecutive working days require managerial approval submitted at least 2 weeks in advance via Workday.
+
+2. Sick and Wellness Leave:
+- Employees receive 10 paid sick days per year, credited on January 1st.
+- For absences exceeding 3 consecutive calendar days due to illness, a physician's medical certificate must be submitted to HR Benefits.
+
+3. Parental and Family Care Leave:
+- Primary and secondary caregivers are eligible for 16 weeks of 100% paid parental leave following the birth, adoption, or foster placement of a child.
+- Parental leave must be taken within the first 12 months following the qualifying event and may be taken continuously or in two separate blocks.
+
+4. Bereavement Leave:
+- 5 paid days for immediate family members (spouse, child, parent, sibling).
+- 3 paid days for extended family members (grandparent, in-laws).

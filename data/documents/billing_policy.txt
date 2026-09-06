@@ -1,0 +1,34 @@
+---
+document_id: billing-policy-v2
+source: billing_policy.txt
+department: finance
+document_type: policy
+version: 2.2
+date: 2026-01-05
+access_level: public
+topic: billing
+---
+
+# NovaTech Solutions: Customer Billing & Invoicing Policy
+
+This policy outlines invoicing cycles, payment terms, billing disputes, and account delinquency rules.
+
+1. Billing Frequency & Invoicing:
+- Monthly subscriptions are charged automatically on the recurring calendar date of initial account signup.
+- Annual contracts are invoiced 30 days prior to contract renewal with Net 30 payment terms.
+- Invoices are delivered electronically via PDF to the designated billing email contact and accessible in the customer portal.
+
+2. Accepted Payment Methods:
+- Major Credit Cards: Visa, MasterCard, American Express, Discover.
+- Automated Clearing House (ACH) direct debit for US accounts with over $500 monthly spend.
+- International Wire Transfers: Supported for Business and Enterprise tiers on annual commitments. Checks and cryptocurrency are not accepted.
+
+3. Payment Grace Period & Late Fees:
+- A 14-day grace period is granted following a failed recurring transaction or past-due invoice.
+- During the grace period, automated email notifications are dispatched at days 1, 3, 7, and 12.
+- If payment is not received within 14 days, a late fee equal to 1.5% per month (or maximum allowable by law) is assessed, and API access is temporarily paused.
+- Accounts past due for more than 45 calendar days are referred to collections and customer data is scheduled for purging per our Data Privacy Policy.
+
+4. Billing Inquiries & Disputes:
+- Customers must notify NovaTech of any billing discrepancies or dispute claims within 60 calendar days of invoice date by emailing billing@novatech.io.
+- Failure to dispute an invoice within 60 days constitutes full acceptance of the assessed charges.

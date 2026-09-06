@@ -1,0 +1,46 @@
+---
+document_id: product-pricing-v2
+source: product_pricing.txt
+department: sales
+document_type: pricing
+version: 2.3
+date: 2026-01-01
+access_level: public
+topic: pricing
+---
+
+# NovaTech Solutions: Subscription Pricing & Tiers (2026 Edition)
+
+All pricing plans are billed either monthly or annually. Annual commitments receive a 20% discount on listed rates.
+
+1. Starter Tier ($49 / month):
+- Includes 1,000,000 input tokens and 250,000 output tokens per month.
+- Up to 5 team members.
+- Vector database storage up to 50,000 document chunks.
+- Standard email support with 48-hour response SLA.
+- Standard BM25 and dense retrieval with FAISS.
+
+2. Pro Tier ($199 / month):
+- Includes 5,000,000 input tokens and 1,200,000 output tokens per month.
+- Up to 25 team members.
+- Vector database storage up to 250,000 document chunks.
+- Priority email and Slack support with 12-hour response SLA.
+- Advanced Hybrid search (Dense + BM25 + Reciprocal Rank Fusion).
+- Cross-encoder reranking included.
+
+3. Business Tier ($699 / month):
+- Includes 20,000,000 input tokens and 5,000,000 output tokens per month.
+- Up to 100 team members.
+- Up to 1,000,000 document chunks.
+- 4-hour critical response SLA, 24/7 emergency incident coverage.
+- Custom metadata filtering, automated contextual compression, and MultiQuery retrieval.
+- Role-based access control (RBAC) and Single Sign-On (SSO via Okta / SAML 2.0).
+
+4. Enterprise Tier (Custom Quote - Starts at $2,500 / month):
+- Unlimited tokens and dedicated inference clusters.
+- Custom VPC deployment (AWS, GCP, Azure, or on-premise Kubernetes).
+- Dedicated customer success manager and 99.99% uptime guarantee.
+- Full compliance suite (HIPAA BAA, SOC 2 Type II, FedRAMP In-Process).
+
+Overage Rates:
+Tokens exceeding tier allotments are billed at $1.50 per 1,000,000 input tokens and $4.00 per 1,000,000 output tokens.

@@ -1,0 +1,36 @@
+---
+document_id: customer-support-v2
+source: customer_support.txt
+department: support
+document_type: specification
+version: 2.1
+date: 2026-01-10
+access_level: public
+topic: support-sla
+---
+
+# NovaTech Solutions: Customer Support Service Level Agreement (SLA)
+
+NovaTech provides tiered technical support to ensure enterprise customer continuity and issue resolution.
+
+1. Support Channels and Operating Hours:
+- Standard Email Support (support@novatech.io): Available Monday through Friday, 8:00 AM to 8:00 PM EST.
+- Priority Slack Connect Channel: Available for Pro, Business, and Enterprise customers.
+- 24/7 Telephone Hotline (+1-800-555-NOVA): Exclusively reserved for Severity 1 outages affecting Business and Enterprise accounts.
+
+2. Severity Levels & First Response Time SLAs:
+- Severity 1 (Critical Outage - Core API or Search Down):
+  - Starter: 8 business hours
+  - Pro: 2 hours (24/7)
+  - Business: 30 minutes (24/7)
+  - Enterprise: 15 minutes guaranteed with immediate engineering escalation
+- Severity 2 (Major Feature Degraded - Fallback operational):
+  - Starter: 24 business hours
+  - Pro: 8 business hours
+  - Business: 2 business hours
+  - Enterprise: 1 hour
+- Severity 3 (Minor Bug / General Inquiry / Feature Request):
+  - All Tiers: 1 to 2 business days
+
+3. Escalation Path:
+If a Severity 1 incident is not resolved within 2 hours of initial response, the ticket automatically escalates to the Tier 3 Principal Site Reliability Engineering (SRE) lead and Vice President of Infrastructure.

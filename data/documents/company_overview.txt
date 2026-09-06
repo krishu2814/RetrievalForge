@@ -1,0 +1,29 @@
+---
+document_id: company-overview-v1
+source: company_overview.txt
+department: corporate
+document_type: overview
+version: 1.0
+date: 2025-06-01
+access_level: public
+topic: company
+---
+
+# NovaTech Solutions: Company Overview
+
+NovaTech Solutions Inc. is a cloud software enterprise founded in 2021, headquartered in San Francisco, California. We specialize in enterprise generative artificial intelligence, intelligent search infrastructure, and automated customer experience systems.
+
+Our mission is to empower organizations to operationalize AI safely, reliably, and transparently. Our flagship platform, NovaAI Enterprise Suite, provides natural language assistants, document intelligence pipelines, and real-time knowledge retrieval.
+
+Key Business Units:
+1. NovaAI Platform: Core enterprise foundation models, fine-tuning infrastructure, and agent orchestration.
+2. KnowledgeForge Engine: Hybrid enterprise search and retrieval infrastructure for corporate data.
+3. Customer Experience Cloud: Omnichannel AI customer support agents with human-in-the-loop escalation.
+
+Corporate Values:
+- Transparency and Observability: We believe in explainable AI systems where every output is traceable to source data.
+- Security-First: Data privacy, zero-retention options, and end-to-end encryption across all tenant boundaries.
+- Continuous Innovation: Pushing retrieval-augmented generation forward through hybrid indexing and reranking.
+
+Offices and Global Presence:
+NovaTech maintains offices in San Francisco, New York, London, and Bengaluru, supporting over 1,200 enterprise customers worldwide across financial services, healthcare, e-commerce, and software.

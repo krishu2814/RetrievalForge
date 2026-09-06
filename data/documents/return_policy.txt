@@ -1,0 +1,29 @@
+---
+document_id: return-policy-v1
+source: return_policy.txt
+department: hardware
+document_type: policy
+version: 1.2
+date: 2025-11-20
+access_level: public
+topic: hardware-returns
+---
+
+# NovaTech Solutions: Physical Hardware Return Policy
+
+This policy governs physical appliance returns for NovaTech Edge Appliance devices (NovaEdge-500 and NovaEdge-Enterprise). This is distinct from software subscription refunds.
+
+1. Physical Return Window:
+Physical hardware devices may be returned within 45 calendar days of recorded carrier delivery. Devices returned after 45 days will be rejected and shipped back at the customer's expense.
+
+2. Return Merchandise Authorization (RMA):
+- Before shipping any device, customers must request an RMA tracking number by emailing hardware-ops@novatech.io.
+- Packages received without a clearly visible RMA number on the exterior label will be refused at our warehouse.
+
+3. Condition of Returned Units:
+- All original packaging, power adapters, rack-mounting brackets, and fiber optic transceivers must be returned undamaged.
+- Devices exhibiting cosmetic damage, liquid spills, or unauthorized enclosure tampering will incur a 20% restocking and refurbishment fee.
+- Defective hardware covered under our 3-year hardware warranty will be replaced with expedited shipping within 48 hours at no charge.
+
+4. Return Shipping:
+NovaTech provides prepaid shipping labels for domestic returns within the United States and European Union. Customers in other jurisdictions are responsible for return transit and customs duties.

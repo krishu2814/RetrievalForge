@@ -1,0 +1,34 @@
+---
+document_id: technical-architecture-v3
+source: technical_architecture.txt
+department: engineering
+document_type: specification
+version: 3.0
+date: 2026-02-10
+access_level: internal
+topic: architecture
+---
+
+# NovaTech Solutions: Core Platform Technical Architecture
+
+This document describes the high-level system architecture of the NovaAI and KnowledgeForge retrieval pipeline.
+
+1. System Architecture Overview:
+NovaTech operates a microservice-based architecture deployed across Kubernetes clusters (EKS / GKE).
+
+Core Services:
+- Ingestion Worker (`ingest-svc`): Asynchronously parses incoming documents, extracts metadata, chunks text via recursive splitting, and dispatches embedding tasks.
+- Vector Indexing Cluster (`vector-svc`): Manages dense embeddings in FAISS and Qdrant clusters. Employs HNSW indexing with cosine distance metrics.
+- Lexical Search Cluster (`sparse-svc`): High-throughput BM25 sparse index providing tokenized inverted index lookup for exact keywords, error codes, and entity IDs.
+- Hybrid Fusion & Rerank Layer (`fusion-svc`): Implements Reciprocal Rank Fusion (RRF) with constant k=60 to merge dense and sparse candidate pools. Candidates are forwarded to Cross-Encoder rerankers (MiniLM-L-6-v2) for final top-K ordering.
+- Generation Gateway (`gen-gateway`): Injects verified context chunks into strict grounded prompts and coordinates streaming LLM responses.
+
+2. Caching Strategy:
+- Redis Cluster 7.2 acts as the L1 semantic cache for frequent identical queries (TTL: 15 minutes).
+- Vector embeddings for recurring document chunks are cached in persistent NVMe SSD tiers.
+
+3. Diagnostics & Error Code Catalog:
+- `ERR_AUTH_TIMEOUT_504`: Gateway timeout during cross-tenant OAuth/JWT verification with the identity provider. Indicates token expiration or network latency exceeding 3,000ms.
+- `ERR_VECTOR_DIM_MISMATCH_400`: Embedding vector dimensionality (e.g. 384 vs 1536) does not match the active index configuration.
+- `ERR_CONTEXT_WINDOW_EXCEEDED_413`: Total retrieved context plus prompt instructions exceeds the maximum 128k token allowance.
+- `ERR_FUSION_EMPTY_CANDIDATE_POOL`: Neither dense nor sparse retrievers returned any chunks above minimum relevance threshold (0.20).

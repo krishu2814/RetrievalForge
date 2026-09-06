@@ -1,0 +1,31 @@
+---
+document_id: data-privacy-v1
+source: data_privacy.txt
+department: legal
+document_type: policy
+version: 1.4
+date: 2025-10-15
+access_level: public
+topic: privacy
+---
+
+# NovaTech Solutions: Global Data Privacy & Retention Policy
+
+NovaTech complies with the European Union General Data Protection Regulation (GDPR), the California Consumer Privacy Act (CCPA/CPRA), and the UK Data Protection Act.
+
+1. Data Retention Timelines:
+- System Access and Audit Logs: Retained for exactly 90 calendar days, after which they are automatically expunged from cold storage archives.
+- User Profile Information: Retained for the active duration of the customer subscription plus 30 days post-cancellation.
+- Inactive Vector Database Embeddings: If an account is closed or downgraded, customer vector index files are marked for deletion and permanently purged within 14 calendar days.
+
+2. Right to Erasure ("Right to be Forgotten"):
+Customers or individual data subjects may submit a verifiable erasure request to privacy@novatech.io. Upon identity verification:
+- All raw documents in object storage buckets are deleted within 7 business days.
+- Vector database entries and sparse BM25 indices are re-indexed to expunge associated chunk IDs within 48 hours.
+- Automated confirmation receipts with cryptographic SHA-256 deletion certificates are provided to the requestor.
+
+3. Data Processing Agreements (DPAs):
+We provide standard pre-signed GDPR DPAs incorporating European Commission Standard Contractual Clauses (SCCs) for cross-border international data transfers.
+
+4. Data Protection Officer (DPO):
+Inquiries regarding privacy, regulatory audits, or sub-processor lists may be directed to our appointed Data Protection Officer at dpo@novatech.io.

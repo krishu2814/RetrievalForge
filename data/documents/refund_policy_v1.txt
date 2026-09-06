@@ -1,0 +1,29 @@
+---
+document_id: refund-policy-v1
+source: refund_policy_v1.txt
+department: support
+document_type: policy
+version: 1.0
+date: 2024-01-10
+access_level: public
+topic: refunds
+---
+
+# NovaTech Solutions: Customer Refund Policy (Archived Version 1.0)
+
+NOTICE: This is an archived policy document superseded by Version 2.0 on January 15, 2026.
+
+1. Refund Period:
+Under Version 1.0, customers could request a full refund within 14 calendar days of initial purchase or subscription renewal. Requests submitted after 14 days were strictly non-refundable.
+
+2. Eligibility Requirements:
+- The customer must have consumed less than 5,000 API credits during the billing cycle.
+- The account must not have been suspended for Terms of Service violations.
+- Monthly subscriptions were eligible for refund within 14 days, but annual contracts were non-refundable after 7 days.
+
+3. Processing Timeline:
+Approved refund requests were processed within 10 to 14 business days via the original payment method (Credit Card or Wire Transfer).
+Late refund disputes were subject to a $25 administrative processing charge.
+
+4. Exceptions:
+Custom enterprise onboarding services, implementation consulting, and dedicated cluster provisioning fees were strictly non-refundable under all circumstances.

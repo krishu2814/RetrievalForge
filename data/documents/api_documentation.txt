@@ -1,0 +1,49 @@
+---
+document_id: api-documentation-v2
+source: api_documentation.txt
+department: engineering
+document_type: specification
+version: 2.4
+date: 2026-01-25
+access_level: public
+topic: api-reference
+---
+
+# NovaTech Solutions: REST API Reference & Developer Guide
+
+The NovaAI REST API enables developers to programmatically ingest knowledge bases, perform hybrid searches, and generate grounded answers.
+
+1. Authentication:
+All API requests must include the secret API key in the custom request header:
+`X-Nova-API-Key: nv_live_xxxxxxxxxxxxxxxx`
+Alternatively, standard HTTP Bearer token authentication is supported:
+`Authorization: Bearer nv_live_xxxxxxxxxxxxxxxx`
+
+2. Core Endpoints:
+- `POST /v1/retrieval/query`:
+  Executes search over customer vector indexes.
+  Parameters:
+  - `query` (string, required): Natural language search query.
+  - `strategy` (string, optional): "dense", "sparse", "hybrid", or "hybrid_reranked" (default: "hybrid").
+  - `top_k` (integer, optional): Number of results to return (default: 5, max: 50).
+  - `filters` (object, optional): Key-value pairs for metadata filtering (e.g. `{"department": "support"}`).
+
+- `POST /v1/documents/ingest`:
+  Uploads and chunks documents for vector and sparse indexing.
+  Parameters:
+  - `files` (multipart/form-data): Binary or text files.
+  - `chunk_size` (integer, default: 500).
+  - `chunk_overlap` (integer, default: 100).
+
+3. Rate Limits & Error Handling:
+- Starter Tier: 60 requests per minute (RPM).
+- Pro Tier: 300 RPM.
+- Business Tier: 1,200 RPM.
+- Enterprise Tier: 5,000+ RPM customizable.
+
+Status & Error Codes:
+- `200 OK`: Request succeeded.
+- `400 Bad Request`: Malformed JSON or unsupported parameters.
+- `401 Unauthorized`: Missing or invalid API key.
+- `429 Too Many Requests` (`ERR_RATE_LIMIT_429`): Exceeded per-minute quota. The `Retry-After` header indicates wait time in seconds.
+- `500 Internal Server Error`: Transient backend issue. Contact support@novatech.io with Request-ID.
