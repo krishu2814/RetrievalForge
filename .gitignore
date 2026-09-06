@@ -1,12 +1,20 @@
-# Byte-compiled / optimized / DLL files
+# ==============================================================================
+# Git Ignore Rules for RetrievalForge
+# ==============================================================================
+
+# Virtual Environments (never push local python environment)
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Python Bytecode and Caches
 __pycache__/
 *.py[cod]
 *$py.class
-
-# C extensions
 *.so
-
-# Distribution / packaging
 .Python
 build/
 develop-eggs/
@@ -25,32 +33,35 @@ share/python-wheels/
 .installed.cfg
 *.egg
 
-# Virtual environments
-venv/
-.venv/
-env/
-ENV/
-env.bak/
-venv.bak/
-
-# Environment variables
+# Secrets and Environment Variables (Keep .env.example, never push .env)
 .env
+.env.local
+.env.*.local
 
-# IDE and Editor files
+# Operating System & IDE Files
+.DS_Store
+Thumbs.db
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
-.DS_Store
 
-# Pytest and Testing
+# Pytest and Test Coverage
 .pytest_cache/
 .coverage
 htmlcov/
 .tox/
 .nox/
 
-# Persistent Index files (indexes can be regenerated with scripts/ingest.py)
-data/storage/faiss_index/
-data/storage/bm25_index.pkl
+# HuggingFace & Torch local download caches
+.cache/
+hf_cache/
+
+# Generated Local Index Storage (Index files can be recreated via python scripts/ingest.py)
+data/storage/*
+!data/storage/.gitkeep
+
+# Generated Evaluation Results (Generated during benchmark runs)
+data/evaluation/results.json
+data/evaluation/results.csv
