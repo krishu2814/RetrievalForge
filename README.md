@@ -29,7 +29,10 @@
 ## 🎯 The Problem: Why Retrieval Engineering Matters
 
 Most naive RAG implementations treat document retrieval as a black box:
-$$\text{Query} \xrightarrow{\text{Embedding}} \text{Top-K Cosine Search} \xrightarrow{\text{Concat}} \text{LLM}$$
+
+$$
+\text{Query} \xrightarrow{\text{Embedding}} \text{Top-K Cosine Search} \xrightarrow{\text{Concat}} \text{LLM}
+$$
 
 In real-world enterprise environments, **80% of RAG failures are Retrieval Failures**:
 1. **The Vocabulary Mismatch Problem**: Dense embeddings struggle with exact alphanumeric error codes (`ERR_AUTH_TIMEOUT_504`), legal clauses, or SKU numbers.
@@ -102,17 +105,22 @@ flowchart TD
 ### 1. Reciprocal Rank Fusion (RRF)
 When fusing dense similarity scores $[0, 1]$ and BM25 scores $[0, \infty)$, direct score blending causes **score calibration mismatch**. RRF circumvents this by operating exclusively on document ranks:
 
-$$\text{RRF\_Score}(d) = \sum_{m \in \mathcal{M}} \frac{w_m}{k + \text{rank}_m(d)}$$
+$$
+\mathrm{RRF}(d) = \sum_{m \in \mathcal{M}} \frac{w_m}{k + r_m(d)}
+$$
 
 Where:
 - $\mathcal{M} = \{\text{dense}, \text{sparse}\}$
-- $k = 60$ (smoothing parameter discovered in Cormack et al., preventing high ranks from dominating)
-- $w_{\text{dense}} = 0.5, w_{\text{sparse}} = 0.5$
+- $k = 60$ (rank smoothing constant from Cormack et al., preventing top ranks from dominating)
+- $w_m$ represents retriever weights ($w_{\text{dense}} = 0.5, w_{\text{sparse}} = 0.5$)
+- $r_m(d)$ is the 1-based rank position of document $d$ in retriever $m$
 
 ### 2. Maximal Marginal Relevance (MMR)
 Balances query relevance against redundant candidate similarity:
 
-$$\text{MMR} = \operatorname{argmax}_{d_i \in R \setminus S} \left[ \lambda \cdot \operatorname{Sim}_1(d_i, q) - (1 - \lambda) \max_{d_j \in S} \operatorname{Sim}_2(d_i, d_j) \right]$$
+$$
+\mathrm{MMR} = \arg\max_{d_i \in R \setminus S} \left[ \lambda \cdot \mathrm{Sim}(d_i, q) - (1 - \lambda) \max_{d_j \in S} \mathrm{Sim}(d_i, d_j) \right]
+$$
 
 - $\lambda = 0.7$ favors query relevance while penalizing chunks that share high cosine similarity with already-selected documents $S$.
 
@@ -121,13 +129,30 @@ $$\text{MMR} = \operatorname{argmax}_{d_i \in R \setminus S} \left[ \lambda \cdo
 - **Cross-Encoder ($O(N)$ Reranking)**: Concatenates query and document into a single token sequence `[CLS] Query [SEP] Document [EOS]` and passes it through all self-attention transformer layers. Every query token directly attends to every document token, enabling fine-grained reasoning over version numbers and negations.
 
 ### 4. Information Retrieval (IR) Evaluation Metrics
-- **Hit@K**: $\text{Hit@}K = 1 \text{ if } (\text{Retrieved}_{1..K} \cap \text{Expected}) \neq \emptyset \text{ else } 0$
-- **Recall@K**: Proportion of total relevant documents retrieved:
-  $$\text{Recall@}K = \frac{|\text{Retrieved}_{1..K} \cap \text{Expected}|}{|\text{Expected}|}$$
-- **Mean Reciprocal Rank (MRR@K)**: Evaluates the position of the *first* relevant hit:
-  $$\text{MRR@}K = \frac{1}{|Q|} \sum_{q \in Q} \frac{1}{\text{rank}_1(q)}$$
+
+- **Hit@K**: Binary indicator of whether at least one relevant document was retrieved in the top $K$:
+
+$$
+\mathrm{Hit@K} = \begin{cases} 1 & \text{if } |\mathcal{R}_K \cap \mathcal{E}| > 0 \\ 0 & \text{otherwise} \end{cases}
+$$
+
+- **Recall@K**: Proportion of total relevant documents retrieved in the top $K$:
+
+$$
+\mathrm{Recall@K} = \frac{|\mathcal{R}_K \cap \mathcal{E}|}{|\mathcal{E}|}
+$$
+
+- **Mean Reciprocal Rank (MRR@K)**: Evaluates the position of the *first* relevant hit across all queries $Q$:
+
+$$
+\mathrm{MRR@K} = \frac{1}{|Q|} \sum_{q \in Q} \frac{1}{\mathrm{rank}_1(q)}
+$$
+
 - **Normalized Discounted Cumulative Gain (NDCG@K)**: Measures ranking quality with logarithmic position discount:
-  $$\text{DCG@}K = \sum_{i=1}^K \frac{2^{\text{rel}_i} - 1}{\log_2(i + 1)}, \quad \text{NDCG@}K = \frac{\text{DCG@}K}{\text{IDCG@}K}$$
+
+$$
+\mathrm{DCG@K} = \sum_{i=1}^K \frac{2^{\mathrm{rel}_i} - 1}{\log_2(i + 1)}, \quad \mathrm{NDCG@K} = \frac{\mathrm{DCG@K}}{\mathrm{IDCG@K}}
+$$
 
 ---
 
