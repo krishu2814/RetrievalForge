@@ -61,7 +61,8 @@ flowchart TD
         DenseIdx --> DenseRet["Dense Vector Retriever"]
         SparseIdx --> SparseRet["BM25 Lexical Retriever"]
         DenseIdx --> MMRRet["MMR Diversity Retriever"]
-        DenseRet & SparseRet --> RRF["Reciprocal Rank Fusion<br>RRF k=60"]
+        DenseRet --> RRF["Reciprocal Rank Fusion<br>RRF k=60"]
+        SparseRet --> RRF
     end
 
     subgraph POST_RETRIEVAL ["4. Post-Retrieval Optimization"]
