@@ -46,37 +46,37 @@ In real-world enterprise environments, **80% of RAG failures are Retrieval Failu
 ```mermaid
 flowchart TD
     subgraph INGESTION ["1. Ingestion Engine"]
-        Docs[Raw Documents (.txt)] --> Meta[Header Metadata Parser]
-        Meta --> Chunker[Recursive Character Splitter]
-        Chunker --> DenseIdx[(FAISS Dense Vectorstore\nall-MiniLM-L6-v2)]
-        Chunker --> SparseIdx[(BM25 Inverted Index\nrank-bm25)]
+        Docs["Raw Documents (.txt)"] --> Meta["Header Metadata Parser"]
+        Meta --> Chunker["Recursive Character Splitter"]
+        Chunker --> DenseIdx[("FAISS Dense Vectorstore<br>all-MiniLM-L6-v2")]
+        Chunker --> SparseIdx[("BM25 Inverted Index<br>rank-bm25")]
     end
 
     subgraph QUERY_TRANSFORMATION ["2. Query Transformations"]
-        Query[User Input Query] --> Expander[Query Expander\nSynonyms & Technical Variants]
-        Query --> MultiQ[Multi-Query Decomposition\nKeyword / Concept / Error Code]
+        Query["User Input Query"] --> Expander["Query Expander<br>Synonyms & Technical Variants"]
+        Query --> MultiQ["Multi-Query Decomposition<br>Keyword / Concept / Error Code"]
     end
 
     subgraph RETRIEVAL_TIER ["3. Multi-Strategy Retrieval Tier"]
-        DenseIdx --> DenseRet[Dense Vector Retriever]
-        SparseIdx --> SparseRet[BM25 Lexical Retriever]
-        DenseIdx --> MMRRet[MMR Diversity Retriever]
-        DenseRet & SparseRet --> RRF[Reciprocal Rank Fusion\nRRF k=60]
+        DenseIdx --> DenseRet["Dense Vector Retriever"]
+        SparseIdx --> SparseRet["BM25 Lexical Retriever"]
+        DenseIdx --> MMRRet["MMR Diversity Retriever"]
+        DenseRet & SparseRet --> RRF["Reciprocal Rank Fusion<br>RRF k=60"]
     end
 
     subgraph POST_RETRIEVAL ["4. Post-Retrieval Optimization"]
-        RRF --> Pool[Candidate Pool k=20]
-        Pool --> CrossEnc[Cross-Encoder Reranker\nms-marco-MiniLM-L-6-v2]
-        CrossEnc --> Reranked[Top 5 Reranked Candidates]
-        Reranked --> Comp[Contextual Compressor\nSentence Embedding Similarity]
-        Comp --> FinalContext[Filtered & Pruned Context]
+        RRF --> Pool["Candidate Pool (k=20)"]
+        Pool --> CrossEnc["Cross-Encoder Reranker<br>ms-marco-MiniLM-L-6-v2"]
+        CrossEnc --> Reranked["Top 5 Reranked Candidates"]
+        Reranked --> Comp["Contextual Compressor<br>Sentence Embedding Similarity"]
+        Comp --> FinalContext["Filtered & Pruned Context"]
     end
 
     subgraph GENERATION_AND_EVAL ["5. Generation & Observability"]
-        FinalContext --> Prompt[Strict Security Prompt\nPassive Data + Citations]
-        Prompt --> LLM[ChatOpenAI / Compatible API]
-        FinalContext --> Debugger[Rich Terminal Debugger]
-        FinalContext --> Benchmark[Benchmark Suite\nRecall@K, MRR@K, NDCG@K]
+        FinalContext --> Prompt["Strict Security Prompt<br>Passive Data + Citations"]
+        Prompt --> LLM["ChatOpenAI / Compatible API"]
+        FinalContext --> Debugger["Rich Terminal Debugger"]
+        FinalContext --> Benchmark["Benchmark Suite<br>Recall@K, MRR@K, NDCG@K"]
     end
 ```
 
