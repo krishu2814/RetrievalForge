@@ -212,7 +212,7 @@ def interactive_repl(
                     top_k=settings.DEFAULT_TOP_K,
                 )
 
-        except KeyboardInterrupt:
+        except (KeyboardInterrupt, EOFError):
             print("\nExiting RetrievalForge. Goodbye!")
             break
         except Exception as e:

@@ -120,7 +120,7 @@ class ContextualCompressor:
         for doc in documents:
             compressed_text, ratio = self.compress_text(query, doc.content)
 
-            updated_metadata = dict(doc.metadata)
+            updated_metadata = dict(doc.metadata or {})
             updated_metadata["original_content"] = doc.content
             updated_metadata["compression_ratio"] = ratio
 
