@@ -93,13 +93,15 @@ class HybridRetriever:
     def __init__(
         self,
         dense_retriever: Optional[DenseRetriever] = None,
-        sparse_retriever: Optional[BM25Retriever] = None
+        sparse_retriever: Optional[BM25Retriever] = None,
+        bm25_retriever: Optional[BM25Retriever] = None,
     ):
         """
         Initializes the hybrid retriever with dense and sparse instances.
+        Supports either sparse_retriever or bm25_retriever parameter.
         """
         self.dense_retriever = dense_retriever or DenseRetriever()
-        self.sparse_retriever = sparse_retriever or BM25Retriever()
+        self.sparse_retriever = sparse_retriever or bm25_retriever or BM25Retriever()
 
     def retrieve(
         self,

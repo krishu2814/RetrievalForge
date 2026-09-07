@@ -155,3 +155,8 @@ class RerankedRetriever:
         )
 
         return reranked
+
+
+# Alias for clarity in pipelines and documentation
+CrossEncoderReranker = Reranker
+
