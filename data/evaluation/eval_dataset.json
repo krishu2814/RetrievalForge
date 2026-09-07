@@ -1,0 +1,227 @@
+[
+  {
+    "id": "eval_01",
+    "query": "What does error code ERR_AUTH_TIMEOUT_504 mean in the API?",
+    "category": "exact_keyword",
+    "expected_sources": ["api_documentation.txt"],
+    "expected_doc_ids": ["api-documentation"],
+    "ground_truth_answer": "ERR_AUTH_TIMEOUT_504 indicates an authentication gateway timeout when token validation exceeds 5000ms.",
+    "relevant_keywords": ["ERR_AUTH_TIMEOUT_504", "5000ms", "authentication", "timeout"]
+  },
+  {
+    "id": "eval_02",
+    "query": "What is the rate limit and error code when requests exceed the threshold?",
+    "category": "exact_keyword",
+    "expected_sources": ["api_documentation.txt"],
+    "expected_doc_ids": ["api-documentation"],
+    "ground_truth_answer": "Rate limits are 100 req/min for free and 10,000 req/min for enterprise. Exceeding returns ERR_RATE_LIMIT_429.",
+    "relevant_keywords": ["ERR_RATE_LIMIT_429", "10,000", "100", "rate limit"]
+  },
+  {
+    "id": "eval_03",
+    "query": "What is the maximum daily per diem meal expense allowed without pre-approval?",
+    "category": "exact_keyword",
+    "expected_sources": ["employee_expense_policy.txt"],
+    "expected_doc_ids": ["employee-expense-policy"],
+    "ground_truth_answer": "The maximum daily per diem meal allowance is $75 per day.",
+    "relevant_keywords": ["$75", "meal", "per diem"]
+  },
+  {
+    "id": "eval_04",
+    "query": "What is the return window for defective hardware appliances?",
+    "category": "exact_keyword",
+    "expected_sources": ["return_policy.txt"],
+    "expected_doc_ids": ["return-policy"],
+    "ground_truth_answer": "Hardware appliances have a 45-day return window from delivery date with an RMA number.",
+    "relevant_keywords": ["45 days", "hardware", "RMA"]
+  },
+  {
+    "id": "eval_05",
+    "query": "What endpoint is used for document ingestion in the API?",
+    "category": "exact_keyword",
+    "expected_sources": ["api_documentation.txt"],
+    "expected_doc_ids": ["api-documentation"],
+    "ground_truth_answer": "The POST /api/v1/documents endpoint is used for ingesting documents.",
+    "relevant_keywords": ["/api/v1/documents", "POST"]
+  },
+  {
+    "id": "eval_06",
+    "query": "How does NovaTech protect customer data privacy and comply with regulations?",
+    "category": "conceptual",
+    "expected_sources": ["data_privacy.txt"],
+    "expected_doc_ids": ["data-privacy"],
+    "ground_truth_answer": "NovaTech complies with GDPR, CCPA, and SOC 2 Type II, using AES-256 encryption at rest and TLS 1.3 in transit.",
+    "relevant_keywords": ["GDPR", "CCPA", "SOC 2", "AES-256", "encryption"]
+  },
+  {
+    "id": "eval_07",
+    "query": "What are the rules regarding annual vacation leave and paid time off?",
+    "category": "conceptual",
+    "expected_sources": ["employee_leave_policy.txt"],
+    "expected_doc_ids": ["employee-leave-policy"],
+    "ground_truth_answer": "Full-time employees receive 20 days of paid time off (PTO) annually, with up to 5 days rollover.",
+    "relevant_keywords": ["20 days", "PTO", "rollover"]
+  },
+  {
+    "id": "eval_08",
+    "query": "Explain the architectural components used for caching and asynchronous messaging.",
+    "category": "conceptual",
+    "expected_sources": ["technical_architecture.txt"],
+    "expected_doc_ids": ["technical-architecture"],
+    "ground_truth_answer": "Redis Cluster is used for low-latency caching and session management, while Apache Kafka handles asynchronous event streaming.",
+    "relevant_keywords": ["Redis", "Kafka", "caching", "streaming"]
+  },
+  {
+    "id": "eval_09",
+    "query": "What support channels and response times exist for high-severity enterprise incidents?",
+    "category": "conceptual",
+    "expected_sources": ["customer_support.txt"],
+    "expected_doc_ids": ["customer-support"],
+    "ground_truth_answer": "Enterprise customers receive 24/7/365 dedicated engineering support with a 15-minute response SLA for Severity-1 outages.",
+    "relevant_keywords": ["24/7/365", "15-minute", "SLA", "Severity-1"]
+  },
+  {
+    "id": "eval_10",
+    "query": "Who founded NovaTech Solutions and what was their founding mission?",
+    "category": "conceptual",
+    "expected_sources": ["company_overview.txt"],
+    "expected_doc_ids": ["company-overview"],
+    "ground_truth_answer": "NovaTech Solutions was founded in 2021 by Dr. Elena Vance and Marcus Chen in Austin, Texas, to democratize enterprise AI.",
+    "relevant_keywords": ["Dr. Elena Vance", "Marcus Chen", "2021", "Austin"]
+  },
+  {
+    "id": "eval_11",
+    "query": "What is the active refund window for subscriptions under the current policy?",
+    "category": "version_conflict",
+    "expected_sources": ["refund_policy_v2.txt"],
+    "expected_doc_ids": ["refund-policy-v2"],
+    "ground_truth_answer": "Under the active Version 2.0 policy, customers can request a 100% money-back refund within 30 calendar days.",
+    "relevant_keywords": ["30 calendar days", "Version 2.0", "100% money-back"]
+  },
+  {
+    "id": "eval_12",
+    "query": "Are there any cancellation fees or restocking penalties on software refunds?",
+    "category": "version_conflict",
+    "expected_sources": ["refund_policy_v2.txt"],
+    "expected_doc_ids": ["refund-policy-v2"],
+    "ground_truth_answer": "Under Version 2.0, software refunds have zero cancellation penalties or fees.",
+    "relevant_keywords": ["zero cancellation penalties", "Version 2.0"]
+  },
+  {
+    "id": "eval_13",
+    "query": "What was the old refund policy timeframe prior to Version 2.0?",
+    "category": "version_conflict",
+    "expected_sources": ["refund_policy_v1.txt"],
+    "expected_doc_ids": ["refund-policy-v1"],
+    "ground_truth_answer": "Under archived Version 1.0, refunds had to be requested within 14 calendar days.",
+    "relevant_keywords": ["14 calendar days", "Version 1.0", "archived"]
+  },
+  {
+    "id": "eval_14",
+    "query": "How does the return policy for physical hardware differ from software refunds?",
+    "category": "version_conflict",
+    "expected_sources": ["return_policy.txt", "refund_policy_v2.txt"],
+    "expected_doc_ids": ["return-policy", "refund-policy-v2"],
+    "ground_truth_answer": "Hardware returns allow 45 days with RMA requirement, whereas software subscriptions allow 30 days money-back.",
+    "relevant_keywords": ["45 days", "30 days", "hardware", "software"]
+  },
+  {
+    "id": "eval_15",
+    "query": "What are the pricing costs and support SLAs for the Enterprise plan?",
+    "category": "multi_hop",
+    "expected_sources": ["product_pricing.txt", "customer_support.txt"],
+    "expected_doc_ids": ["product-pricing", "customer-support"],
+    "ground_truth_answer": "Enterprise tier costs $499 per seat per month (billed annually) and includes 24/7 dedicated support with a 15-minute P1 SLA.",
+    "relevant_keywords": ["$499", "24/7", "15-minute"]
+  },
+  {
+    "id": "eval_16",
+    "query": "What are the password complexity requirements and authentication security standards?",
+    "category": "multi_hop",
+    "expected_sources": ["enterprise_security.txt"],
+    "expected_doc_ids": ["enterprise-security"],
+    "ground_truth_answer": "Passwords require a minimum of 14 characters, uppercase, lowercase, numbers, and symbols, rotated every 90 days with mandatory MFA.",
+    "relevant_keywords": ["14 characters", "MFA", "90 days", "symbols"]
+  },
+  {
+    "id": "eval_17",
+    "query": "When are monthly invoices issued and what is the grace period before suspension?",
+    "category": "multi_hop",
+    "expected_sources": ["billing_policy.txt"],
+    "expected_doc_ids": ["billing-policy"],
+    "ground_truth_answer": "Monthly invoices are issued on the 1st of each month with a 7-day grace period before account suspension.",
+    "relevant_keywords": ["1st of each month", "7-day grace period", "suspension"]
+  },
+  {
+    "id": "eval_18",
+    "query": "What is the context window size and p95 latency for NovaAI?",
+    "category": "multi_hop",
+    "expected_sources": ["product_novaai.txt"],
+    "expected_doc_ids": ["product-novaai"],
+    "ground_truth_answer": "NovaAI features a 128,000 token context window and p95 inference latency under 200ms.",
+    "relevant_keywords": ["128,000", "128k", "200ms", "latency"]
+  },
+  {
+    "id": "eval_19",
+    "query": "What flight cabin class is authorized for business travel under 6 hours versus over 6 hours?",
+    "category": "multi_hop",
+    "expected_sources": ["employee_expense_policy.txt"],
+    "expected_doc_ids": ["employee-expense-policy"],
+    "ground_truth_answer": "Flights under 6 hours must be booked in economy class, while flights exceeding 6 hours are eligible for business class.",
+    "relevant_keywords": ["economy", "business class", "6 hours"]
+  },
+  {
+    "id": "eval_20",
+    "query": "How many weeks of paid parental leave are offered to primary caregivers?",
+    "category": "multi_hop",
+    "expected_sources": ["employee_leave_policy.txt"],
+    "expected_doc_ids": ["employee-leave-policy"],
+    "ground_truth_answer": "Primary caregivers are entitled to 16 weeks of fully paid parental leave.",
+    "relevant_keywords": ["16 weeks", "primary caregiver", "parental leave"]
+  },
+  {
+    "id": "eval_21",
+    "query": "What is the stock ticker symbol for NovaTech Solutions on the New York Stock Exchange?",
+    "category": "negative",
+    "expected_sources": [],
+    "expected_doc_ids": [],
+    "ground_truth_answer": "I don't have enough information in the provided documents to answer this question.",
+    "relevant_keywords": []
+  },
+  {
+    "id": "eval_22",
+    "query": "What is the company dress code policy for engineers working remotely?",
+    "category": "negative",
+    "expected_sources": [],
+    "expected_doc_ids": [],
+    "ground_truth_answer": "I don't have enough information in the provided documents to answer this question.",
+    "relevant_keywords": []
+  },
+  {
+    "id": "eval_23",
+    "query": "How do I configure Oracle Database 19c RAC clusters for NovaTech?",
+    "category": "negative",
+    "expected_sources": [],
+    "expected_doc_ids": [],
+    "ground_truth_answer": "I don't have enough information in the provided documents to answer this question.",
+    "relevant_keywords": []
+  },
+  {
+    "id": "eval_24",
+    "query": "What corporate employee discount is available when buying Apple MacBook laptops?",
+    "category": "negative",
+    "expected_sources": [],
+    "expected_doc_ids": [],
+    "ground_truth_answer": "I don't have enough information in the provided documents to answer this question.",
+    "relevant_keywords": []
+  },
+  {
+    "id": "eval_25",
+    "query": "Can personal vacation airline tickets be reimbursed through the corporate expensing tool?",
+    "category": "negative",
+    "expected_sources": [],
+    "expected_doc_ids": [],
+    "ground_truth_answer": "I don't have enough information in the provided documents to answer this question.",
+    "relevant_keywords": []
+  }
+]
