@@ -48,6 +48,7 @@ class Settings(BaseSettings):
     # Reranking & Compression
     RERANK_TOP_K: int = 5
     COMPRESSION_ENABLED: bool = False
+    COMPRESSION_SIMILARITY_THRESHOLD: float = 0.4
 
     # Query Transformation
     MULTI_QUERY_COUNT: int = 3
