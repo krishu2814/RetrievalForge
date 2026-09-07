@@ -110,9 +110,9 @@ $$
 $$
 
 Where:
-- $\mathcal{M} = \{\text{dense}, \text{sparse}\}$
+- $\mathcal{M} = \{\mathrm{dense}, \mathrm{sparse}\}$
 - $k = 60$ (rank smoothing constant from Cormack et al., preventing top ranks from dominating)
-- $w_m$ represents retriever weights ($w_{\text{dense}} = 0.5, w_{\text{sparse}} = 0.5$)
+- $w_m$ represents retriever weights ($w_{\mathrm{dense}} = 0.5$, $w_{\mathrm{sparse}} = 0.5$)
 - $r_m(d)$ is the 1-based rank position of document $d$ in retriever $m$
 
 ### 2. Maximal Marginal Relevance (MMR)
@@ -133,25 +133,25 @@ $$
 - **Hit@K**: Binary indicator of whether at least one relevant document was retrieved in the top $K$:
 
 $$
-\mathrm{Hit@K} = \begin{cases} 1 & \text{if } |\mathcal{R}_K \cap \mathcal{E}| > 0 \\ 0 & \text{otherwise} \end{cases}
+\mathrm{Hit}(K) = \begin{cases} 1 & \text{if } |\mathcal{R}_K \cap \mathcal{E}| > 0 \\ 0 & \text{otherwise} \end{cases}
 $$
 
 - **Recall@K**: Proportion of total relevant documents retrieved in the top $K$:
 
 $$
-\mathrm{Recall@K} = \frac{|\mathcal{R}_K \cap \mathcal{E}|}{|\mathcal{E}|}
+\mathrm{Recall}(K) = \frac{|\mathcal{R}_K \cap \mathcal{E}|}{|\mathcal{E}|}
 $$
 
 - **Mean Reciprocal Rank (MRR@K)**: Evaluates the position of the *first* relevant hit across all queries $Q$:
 
 $$
-\mathrm{MRR@K} = \frac{1}{|Q|} \sum_{q \in Q} \frac{1}{\mathrm{rank}_1(q)}
+\mathrm{MRR}(K) = \frac{1}{|Q|} \sum_{q \in Q} \frac{1}{\mathrm{rank}_1(q)}
 $$
 
 - **Normalized Discounted Cumulative Gain (NDCG@K)**: Measures ranking quality with logarithmic position discount:
 
 $$
-\mathrm{DCG@K} = \sum_{i=1}^K \frac{2^{\mathrm{rel}_i} - 1}{\log_2(i + 1)}, \quad \mathrm{NDCG@K} = \frac{\mathrm{DCG@K}}{\mathrm{IDCG@K}}
+\mathrm{DCG}(K) = \sum_{i=1}^K \frac{2^{\mathrm{rel}_i} - 1}{\log_2(i + 1)}, \quad \mathrm{NDCG}(K) = \frac{\mathrm{DCG}(K)}{\mathrm{IDCG}(K)}
 $$
 
 ---
