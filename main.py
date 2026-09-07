@@ -110,6 +110,7 @@ def execute_comparison(
     top_k: int = 5,
     filters: Optional[MetadataFilter] = None,
     generate_answer: bool = True,
+    compress: Optional[bool] = None,
 ) -> None:
     """
     Executes multiple retrieval strategies side-by-side for comparison.
@@ -128,6 +129,7 @@ def execute_comparison(
             strategy=strat,
             top_k=top_k,
             filters=filters,
+            compress=compress,
         )
         traces.append(trace)
 
@@ -313,6 +315,7 @@ def main() -> None:
                 top_k=args.top_k,
                 filters=filters,
                 generate_answer=not args.no_generate,
+                compress=args.compress if args.compress else None,
             )
         else:
             execute_query(

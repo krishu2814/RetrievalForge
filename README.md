@@ -1,7 +1,7 @@
 # 🔥 RetrievalForge: Production-Grade Advanced Retrieval RAG Lab
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg?style=flat-square)](https://www.python.org/downloads/)
-[![Tests Passing](https://img.shields.io/badge/tests-100%2F100%20passing-brightgreen.svg?style=flat-square)](https://github.com/krishu2814/RetrievalForge)
+[![Tests Passing](https://img.shields.io/badge/tests-101%2F101%20passing-brightgreen.svg?style=flat-square)](https://github.com/krishu2814/RetrievalForge)
 [![Code Style: Clean & Modular](https://img.shields.io/badge/code%20style-pydantic%20v2%20%7C%20langchain%200.3-blueviolet.svg?style=flat-square)](https://github.com/krishu2814/RetrievalForge)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](LICENSE)
 [![GitHub: krishu2814](https://img.shields.io/badge/author-krishu2814%20%7C%20IIIT%20Ranchi-orange.svg?style=flat-square)](https://github.com/krishu2814)
@@ -12,17 +12,17 @@
 ---
 
 ## 📑 Table of Contents
-1. [The Problem: Why Retrieval Engineering Matters](#-the-problem-why-retrieval-engineering-matters)
-2. [Architectural Overview](#-architectural-overview)
-3. [Core Retrieval Strategies & Deep-Dive Theory](#-core-retrieval-strategies--deep-dive-theory)
-4. [Mathematical Foundations](#-mathematical-foundations)
-5. [Empirical Benchmark Results](#-empirical-benchmark-results)
-6. [Visual Retrieval Debugger](#-visual-retrieval-debugger)
-7. [Enterprise Prompt Security & Injection Defense](#-enterprise-prompt-security--injection-defense)
-8. [CLI Usage & Interactive REPL](#-cli-usage--interactive-repl)
-9. [Project Scaffolding](#-project-scaffolding)
-10. [Quickstart Guide](#-quickstart-guide)
-11. [Campus Placement & Resume Highlights](#-campus-placement--resume-highlights)
+1. [The Problem: Why Retrieval Engineering Matters](#the-problem-why-retrieval-engineering-matters)
+2. [Architectural Overview](#architectural-overview)
+3. [Core Retrieval Strategies & Deep-Dive Theory](#core-retrieval-strategies--deep-dive-theory)
+4. [Mathematical Foundations](#mathematical-foundations)
+5. [Empirical Benchmark Results](#empirical-benchmark-results)
+6. [Visual Retrieval Debugger](#visual-retrieval-debugger)
+7. [Enterprise Prompt Security & Injection Defense](#enterprise-prompt-security--injection-defense)
+8. [CLI Usage & Interactive REPL](#cli-usage--interactive-repl)
+9. [Project Scaffolding](#project-scaffolding)
+10. [Quickstart Guide](#quickstart-guide)
+11. [Campus Placement & Resume Highlights](#campus-placement--resume-highlights)
 
 ---
 
@@ -263,15 +263,17 @@ RetrievalForge/
 │   ├── documents/                     # 14 enterprise corpus documents across 7 departments
 │   ├── evaluation/
 │   │   ├── eval_dataset.json          # 25 curated golden benchmark questions
-│   │   └── results.json               # Exported benchmark evaluations
+│   │   ├── results.json               # Exported benchmark evaluations (JSON)
+│   │   └── benchmark_summary.md       # Exported benchmark summary (Markdown)
 │   └── storage/                       # Persistent FAISS and BM25 index storage
 ├── scripts/
 │   ├── ingest.py                      # Document loading, chunking, and index creation
 │   └── evaluate.py                    # Automated benchmark evaluation runner
-├── tests/                             # 21 test files (100 unit & integration tests)
+├── tests/                             # 21 test files (101 unit & integration tests)
 ├── main.py                            # Interactive CLI runner (query, compare, REPL)
 ├── requirements.txt                   # Production dependencies
 ├── pytest.ini                         # Pytest configuration
+├── LICENSE                            # MIT License
 └── README.md                          # Masterclass documentation
 ```
 
@@ -308,12 +310,12 @@ FAISS index saved to: data/storage/faiss_index
 BM25 index saved to:  data/storage/bm25_index.pkl
 ```
 
-### 4. Run the Full Test Suite (100 Tests)
+### 4. Run the Full Test Suite (101 Tests)
 ```bash
 pytest
 ```
 ```text
-======================= 100 passed in 151.35s =======================
+======================= 101 passed in 151.35s =======================
 ```
 
 ### 5. Launch the Interactive CLI
@@ -346,6 +348,6 @@ If you are explaining RetrievalForge in a Software Engineering, Machine Learning
 ---
 
 ## 📜 License
-Distributed under the **MIT License**. See `LICENSE` for more information.
+Distributed under the **MIT License**. See [LICENSE](LICENSE) for more information.
 
 Developed with precision by **[Krishu Kumar Singh](https://github.com/krishu2814)** (IIIT Ranchi).

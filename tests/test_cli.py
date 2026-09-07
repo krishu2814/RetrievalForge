@@ -143,3 +143,30 @@ def test_execute_comparison():
 
     assert mock_pipeline.run.call_count == 2
     mock_debugger.compare_traces.assert_called_once_with([trace1, trace2])
+
+
+def test_execute_comparison_with_compress():
+    mock_pipeline = MagicMock()
+    mock_debugger = MagicMock()
+    mock_generator = MagicMock()
+
+    trace1 = RetrievalTrace(query="test", strategy="dense", candidates=[])
+    mock_pipeline.run.return_value = trace1
+
+    execute_comparison(
+        query="test",
+        pipeline=mock_pipeline,
+        debugger=mock_debugger,
+        generator=mock_generator,
+        strategies=["dense"],
+        generate_answer=False,
+        compress=True,
+    )
+
+    mock_pipeline.run.assert_called_once_with(
+        query="test",
+        strategy="dense",
+        top_k=5,
+        filters=None,
+        compress=True,
+    )
