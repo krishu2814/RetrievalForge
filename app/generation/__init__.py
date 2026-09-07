@@ -9,6 +9,10 @@ from app.generation.prompts import (
     build_query_expansion_prompt,
     build_multi_query_prompt,
 )
+from app.generation.generator import (
+    RAGGenerator,
+    extract_sources,
+)
 
 __all__ = [
     "RAG_SYSTEM_PROMPT",
@@ -18,4 +22,6 @@ __all__ = [
     "build_rag_messages",
     "build_query_expansion_prompt",
     "build_multi_query_prompt",
+    "RAGGenerator",
+    "extract_sources",
 ]

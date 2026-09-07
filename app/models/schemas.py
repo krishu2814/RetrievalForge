@@ -77,3 +77,17 @@ class RetrievalTrace(BaseModel):
     filters: Optional[MetadataFilter] = None
     candidates: List[RetrievalResult] = Field(default_factory=list)
     final_context: str = ""
+
+
+class RAGResponse(BaseModel):
+    """
+    Standard response object returned by the RAG generation layer.
+    Contains the synthesized answer, original query, cited sources,
+    and optional diagnostic retrieval trace.
+    """
+    answer: str
+    query: str
+    sources: List[str] = Field(default_factory=list)
+    strategy: str = "hybrid_reranked"
+    trace: Optional[RetrievalTrace] = None
+
